@@ -6,7 +6,6 @@ A reusable Terraform module template for AWS infrastructure. This template inclu
 
 - **Semantic Versioning**: Automated version management using conventional commits
 - **Automated Releases**: GitHub releases with changelog generation
-- **State Management**: Pre-configured S3 backend with DynamoDB locking
 - **AWS Provider**: Terraform 1.8+ with AWS provider 5.0+
 - **Pre-commit Hooks**: Code quality checks before commits
 
@@ -24,20 +23,6 @@ A reusable Terraform module template for AWS infrastructure. This template inclu
 3. Customize the module for your use case
 4. Follow conventional commit messages for automatic versioning
 
-## Backend Configuration
-
-The module uses an S3 backend with DynamoDB state locking. Update `terraform/providers.tf`:
-
-```hcl
-terraform {
-  backend "s3" {
-    bucket         = "your-tfstate-bucket"
-    key            = "your-module/terraform.tfstate"
-    region         = "us-east-1"
-    dynamodb_table = "terraform-locks"
-    encrypt        = true
-  }
-}
 ```
 
 ## Conventional Commits
